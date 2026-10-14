@@ -9,9 +9,7 @@
 <meta property="og:title" content="Nico e Oscar – Libri da colorare per bambini">
 <meta property="og:description" content="Libri da colorare e di giochi con Nico il costruttore e il cagnolino Oscar.">
 <meta property="og:image" content="img/casa.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="fonts/fonts.css" rel="stylesheet">
 <style>
   :root{
     --carta:#fffdf6; --riga:#dbe9f7; --navy:#1b2a4a; --rosso:#ef4b4b; --giallo:#ffcf2e; --azzurro:#3fb6f0;
@@ -98,6 +96,10 @@
   form.email input{flex:1 1 240px;border:3px solid var(--navy);border-radius:14px;padding:13px 18px;font-size:1rem;font-family:inherit}
   form.email button{border:3px solid var(--navy);background:var(--giallo);color:var(--navy);font-weight:800;border-radius:14px;padding:12px 24px;cursor:pointer;font-family:inherit;font-size:1rem;box-shadow:4px 4px 0 var(--navy)}
   .nota{font-size:.88rem;opacity:.95;margin-top:10px}
+  .consenso{flex-basis:100%;display:flex;gap:10px;align-items:flex-start;font-size:.92rem;line-height:1.4}
+  form.email .consenso input{flex:none;width:22px;height:22px;margin:1px 0 0;padding:0;border:none;border-radius:4px;accent-color:var(--navy)}
+  .consenso a{color:inherit;font-weight:800}
+  .errore{display:none;background:#fff;color:#b3261e;border-radius:14px;padding:10px 16px;margin-top:14px;font-weight:700}
   .grazie{display:none;background:var(--navy);border-radius:14px;padding:12px 16px;margin-top:14px;font-weight:700}
 
   .due{display:grid;grid-template-columns:1fr 1fr;gap:30px}
@@ -176,12 +178,15 @@
     <div>
       <h2 data-t="gr_tit">Un disegno da colorare, gratis!</h2>
       <p data-t="gr_txt">Lascia la tua email: ti mandiamo subito il disegno di Nico e Oscar da stampare, e ti avvisiamo quando esce un libro nuovo. Niente spam, promesso da Oscar 🐾</p>
-      <form class="email" id="formEmail">
-        <!-- DA COLLEGARE: account MailerLite/Brevo (gratis). Per ora il modulo scarica solo il PDF e non salva l'email. -->
-        <input type="email" required placeholder="La tua email" data-tp="gr_ph">
+      <!-- Modulo collegato a MailerLite (account 2713111, modulo "Sito nicoeoscar", gruppo "Disegno gratis Nico e Oscar", double opt-in) -->
+      <form class="email" id="formEmail" novalidate>
+        <input type="email" name="fields[email]" required placeholder="La tua email" data-tp="gr_ph" autocomplete="email">
         <button type="submit" data-t="gr_btn">Voglio il disegno</button>
+        <label class="consenso"><input type="checkbox" id="consenso" required>
+          <span data-t="gr_cons">Ho letto l'<a href="privacy.html" target="_blank">informativa privacy</a> e voglio ricevere il disegno e le novità di Nico e Oscar.</span></label>
       </form>
-      <div class="grazie" id="grazie" data-t="gr_ok">Grazie! Il download è partito. Buon divertimento!</div>
+      <div class="errore" id="errore"></div>
+      <div class="grazie" id="grazie" data-t="gr_ok">Grazie! Il disegno si sta scaricando. Controlla la tua email e conferma l'iscrizione per ricevere le novità.</div>
       <p class="nota" data-t="gr_nota">Iscrivendoti accetti di ricevere al massimo una email al mese. Puoi cancellarti quando vuoi.</p>
     </div>
   </div>
@@ -217,6 +222,7 @@
       <a href="https://www.youtube.com/@NicoeOscar" target="_blank" rel="noopener">YouTube</a>
       <a href="https://www.instagram.com/nicoeoscar" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.amazon.com/author/nicoeoscar" target="_blank" rel="noopener">Amazon</a>
+      <a href="privacy.html">Privacy</a>
       <small data-t="f_priv">Questo sito non usa cookie di profilazione. Le email raccolte servono solo per inviare il disegno e le novità sui libri.</small>
     </div>
     <div><small>© 2026 MV · Nico e Oscar</small></div>
@@ -272,6 +278,9 @@ const T = {
     v_tit:"Nico & Oscar come to life!",v_txt:"Our YouTube channel has cartoons of the stories in the books: watch together, then… let's color!",v_btn:"Watch the cartoons ▶",
     s_tit:"For schools, shops and markets",s_txt:"Are you a teacher, a bookshop or a stationery shop, or do you run a market stall? We can supply books and gift packs with colored pencils.",
     s1:"Copies for the classroom",s2:"Gift packs: book + pencils",s3:"Books for local shops",s_btn:"Write to us ✉",f_priv:"This site uses no tracking cookies. Emails are used only to send the free page and book news.",
+    gr_cons:"I have read the <a href=\"privacy.html\" target=\"_blank\">privacy policy</a> and want to receive the free page and Nico & Oscar news.",
+    gr_ok:"Thank you! Your page is downloading. Check your inbox and confirm your subscription to get our news.",
+    err_mail:"Please enter a valid email address.",err_cons:"Please tick the privacy box.",
     buy:"Buy on Amazon",soon:"Coming soon",nolg:"Coming soon in English",
     f_diritti:"All rights reserved. No part of this website, including the characters Nico and Oscar, illustrations and texts, may be reproduced without the author's permission. The free coloring page may be printed for personal, non-commercial use only."},
   de:{nav_libri:"Bücher",nav_gratis:"Gratis-Bild",nav_video:"Zeichentrick",nav_scuole:"Schulen & Läden",hero_tag:"Wir bauen mit Nico & Oscar!",
@@ -283,9 +292,12 @@ const T = {
     v_tit:"Nico & Oscar werden lebendig!",v_txt:"Auf unserem YouTube-Kanal gibt es die Geschichten als Zeichentrick: zusammen anschauen und dann… ausmalen!",v_btn:"Zeichentrick ansehen ▶",
     s_tit:"Für Schulen, Läden und Märkte",s_txt:"Sie sind Lehrerin, Buchhandlung oder Schreibwarenladen oder haben einen Marktstand? Wir liefern Bücher und Geschenksets mit Buntstiften.",
     s1:"Bücher für die Klasse",s2:"Geschenksets Buch + Stifte",s3:"Bücher für Läden vor Ort",s_btn:"Schreiben Sie uns ✉",f_priv:"Diese Seite verwendet keine Tracking-Cookies. E-Mails dienen nur dem Gratis-Bild und Buch-Neuigkeiten.",
+    gr_cons:"Ich habe die <a href=\"privacy.html\" target=\"_blank\">Datenschutzerklärung</a> gelesen und möchte das Malbild und Neuigkeiten von Nico & Oscar erhalten.",
+    gr_ok:"Danke! Dein Bild wird heruntergeladen. Bitte bestätige die Anmeldung in deinem E-Mail-Postfach.",
+    err_mail:"Bitte gib eine gültige E-Mail-Adresse ein.",err_cons:"Bitte bestätige den Datenschutz-Hinweis.",
     buy:"Bei Amazon kaufen",soon:"Bald erhältlich",nolg:"Bald auf Deutsch",
     f_diritti:"Alle Rechte vorbehalten. Die Vervielfältigung der Inhalte dieser Website, der Figuren Nico und Oscar, der Illustrationen und Texte – auch auszugsweise – ist ohne Zustimmung des Autors untersagt. Das Gratis-Malbild darf nur für den privaten, nicht kommerziellen Gebrauch ausgedruckt werden."},
-  it:{buy:"Compra su Amazon",soon:"In arrivo",nolg:""}
+  it:{buy:"Compra su Amazon",soon:"In arrivo",nolg:"",err_mail:"Scrivi un indirizzo email valido.",err_cons:"Spunta la casella della privacy."}
 };
 const IT_TXT = {};
 document.querySelectorAll("[data-t]").forEach(e => IT_TXT[e.dataset.t] = e.innerHTML);
@@ -321,9 +333,21 @@ function disegna(){
 document.querySelectorAll(".lingue button").forEach(b => b.onclick = () => {
   lg = b.dataset.lg; try { localStorage.setItem("lg", lg); } catch (e) {} disegna();
 });
+const ML_URL = "https://assets.mailerlite.com/jsonp/2713111/forms/201331459913418250/subscribe";
 document.getElementById("formEmail").addEventListener("submit", ev => {
   ev.preventDefault();
+  const f = ev.target, err = document.getElementById("errore");
+  const email = f.querySelector('input[type=email]');
+  err.style.display = "none";
+  if (!email.checkValidity() || !email.value) { err.textContent = testo("err_mail"); err.style.display = "block"; return; }
+  if (!document.getElementById("consenso").checked) { err.textContent = testo("err_cons"); err.style.display = "block"; return; }
+  const dati = new FormData();
+  dati.append("fields[email]", email.value.trim());
+  dati.append("ml-submit", "1");
+  dati.append("anticsrf", "true");
+  fetch(ML_URL, {method: "POST", body: dati, mode: "no-cors"}).catch(() => {});
   const a = document.createElement("a"); a.href = "disegno_gratis_Nico_e_Oscar.pdf"; a.download = ""; a.click();
+  f.style.display = "none";
   document.getElementById("grazie").style.display = "block";
 });
 disegna();
