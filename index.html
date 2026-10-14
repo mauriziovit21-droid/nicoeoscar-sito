@@ -1,0 +1,332 @@
+﻿<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nico e Oscar – Libri da colorare per bambini</title>
+<meta name="description" content="Costruiamo con Nico e Oscar! Libri da colorare e di giochi per bambini da 1 a 8 anni: case, ospedali, asili, ruspe e cantieri. Disegni grandi, linee spesse, una frase semplice per pagina.">
+<link rel="icon" href="img/logo.png">
+<meta property="og:title" content="Nico e Oscar – Libri da colorare per bambini">
+<meta property="og:description" content="Libri da colorare e di giochi con Nico il costruttore e il cagnolino Oscar.">
+<meta property="og:image" content="img/casa.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --carta:#fffdf6; --riga:#dbe9f7; --navy:#1b2a4a; --rosso:#ef4b4b; --giallo:#ffcf2e; --azzurro:#3fb6f0;
+    --verde:#46c07a; --viola:#8b6cf0; --arancio:#ff8a3d; --testo:#25324a; --grigio:#5d6b80; --r:26px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--testo);line-height:1.55;overflow-x:hidden;
+    background-color:var(--carta);
+    background-image:linear-gradient(var(--riga) 1px,transparent 1px),linear-gradient(90deg,var(--riga) 1px,transparent 1px);
+    background-size:28px 28px}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .hero .wrap>*,.gratis .wrap>*,.due>*{min-width:0}
+  h1,h2,h3{font-family:"Fredoka","Baloo 2",sans-serif;font-weight:700;line-height:1.08;margin:0 0 .4em;color:var(--navy)}
+  .strisce{height:14px;background:repeating-linear-gradient(-45deg,var(--giallo) 0 18px,#222 18px 36px)}
+  .gratis + .strisce,.strisce:has(+ .gratis){display:none}
+
+  header{position:sticky;top:0;z-index:20;background:var(--navy)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px}
+  .marchio{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Fredoka";font-weight:700;font-size:1.45rem;color:#fff}
+  .marchio img{width:50px;height:50px;background:#fff;border-radius:50%}
+  .menu{display:flex;gap:8px}
+  .menu a{text-decoration:none;color:#fff;font-weight:800;padding:8px 14px;border-radius:999px}
+  .menu a:nth-child(1):hover{background:var(--rosso)} .menu a:nth-child(2):hover{background:var(--verde)}
+  .menu a:nth-child(3):hover{background:var(--viola)} .menu a:nth-child(4):hover{background:var(--arancio)}
+  .lingue{display:flex;gap:4px}
+  .lingue button{border:none;background:transparent;color:#cfe0f5;border-radius:10px;padding:5px 9px;font-weight:800;cursor:pointer;font-family:inherit}
+  .lingue button.on{background:var(--giallo);color:var(--navy)}
+
+  .hero{padding:56px 0 30px;text-align:center}
+  .hero .wrap{display:block}
+  .tag{display:inline-block;background:var(--rosso);color:#fff;font-weight:800;border-radius:12px;padding:6px 16px;margin-bottom:16px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--navy)}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);max-width:15em;margin:0 auto .3em}
+  .hero h1::after{content:"";display:block;width:220px;height:14px;margin:10px auto 0;border-radius:999px;
+    background:repeating-linear-gradient(90deg,var(--rosso) 0 44px,var(--giallo) 44px 88px,var(--verde) 88px 132px,var(--azzurro) 132px 176px,var(--viola) 176px 220px)}
+  .hero p{font-size:1.2rem;color:var(--grigio);max-width:36em;margin:0 auto}
+  .punti{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:22px 0 0;padding:0;list-style:none}
+  .punti li{background:#fff;border:3px solid var(--navy);border-radius:14px;padding:6px 14px;font-weight:800;box-shadow:3px 3px 0 var(--navy)}
+  .punti li:nth-child(1){transform:rotate(-2deg)} .punti li:nth-child(3){transform:rotate(2deg)}
+  .bottoni{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;border-radius:16px;padding:14px 26px;border:3px solid var(--navy);box-shadow:5px 5px 0 var(--navy);transition:transform .12s, box-shadow .12s}
+  .btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--navy)}
+  .btn.giallo{background:var(--giallo);color:var(--navy)}
+  .btn.bianco{background:#fff;color:var(--navy)}
+  .pila{display:flex;justify-content:center;align-items:flex-end;gap:0;margin:40px auto 0;max-width:820px;height:auto;position:static}
+  .pila img{position:static;width:30%;border-radius:12px;border:5px solid #fff;box-shadow:6px 8px 0 rgba(27,42,74,.85);margin:0 -12px}
+  .pila img:nth-child(1){transform:rotate(-8deg) translateY(10px)}
+  .pila img:nth-child(2){transform:rotate(7deg) translateY(10px);order:3}
+  .pila img:nth-child(3){transform:scale(1.12);z-index:2;order:2}
+
+  section{padding:64px 0;position:relative}
+  .titolo-sez{text-align:center;margin-bottom:26px}
+  .titolo-sez h2{font-size:clamp(2rem,4.5vw,2.9rem)}
+  .titolo-sez p{color:var(--grigio);margin:0}
+  .filtri{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:32px}
+  .filtri button{border:3px solid var(--navy);background:#fff;border-radius:12px;padding:7px 16px;font-weight:800;cursor:pointer;font-family:inherit;color:var(--navy)}
+  .filtri button.on{background:var(--navy);color:#fff}
+  .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:34px 28px}
+  .libro{background:#fff;border:3px solid var(--navy);border-radius:var(--r);display:flex;flex-direction:column;box-shadow:7px 7px 0 var(--navy);transition:transform .15s}
+  .libro:nth-child(4n+1){--c:var(--rosso);transform:rotate(-1.2deg)} .libro:nth-child(4n+2){--c:var(--verde);transform:rotate(1deg)}
+  .libro:nth-child(4n+3){--c:var(--viola);transform:rotate(-.6deg)} .libro:nth-child(4n){--c:var(--arancio);transform:rotate(1.3deg)}
+  .libro:hover{transform:rotate(0) translateY(-5px)}
+  .libro .cop{background:var(--c);padding:18px;border-radius:22px 22px 0 0;position:relative}
+  .libro .cop img{margin:0 auto;max-height:240px;border-radius:8px;border:4px solid #fff}
+  .badge{position:absolute;top:-12px;right:-10px;background:var(--giallo);color:var(--navy);font-weight:800;font-size:.85rem;border-radius:12px;padding:4px 12px;border:3px solid var(--navy);transform:rotate(6deg)}
+  .libro .dati{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .libro h3{font-size:1.35rem;margin:0}
+  .eta{align-self:flex-start;font-weight:800;color:#fff;background:var(--c);font-size:.85rem;border-radius:8px;padding:2px 10px}
+  .libro p{margin:0;color:var(--grigio);font-size:.95rem;flex:1}
+  .compra{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  .compra a{flex:1;text-align:center;text-decoration:none;font-weight:800;background:var(--giallo);border:3px solid var(--navy);border-radius:14px;padding:9px 12px;color:var(--navy);white-space:nowrap;box-shadow:3px 3px 0 var(--navy)}
+  .compra span{flex:1;text-align:center;font-weight:800;border:3px dashed #aab7c9;border-radius:14px;padding:9px 12px;color:var(--grigio)}
+
+  .gratis{background:var(--verde);color:#fff;margin:40px 0}
+  .gratis::before,.gratis::after{content:"";position:absolute;left:0;right:0;height:40px;background:var(--verde);
+    -webkit-mask:radial-gradient(28px at 50% 0,transparent 98%,#000) 0 0/56px 40px repeat-x;mask:radial-gradient(28px at 50% 0,transparent 98%,#000) 0 0/56px 40px repeat-x}
+  .gratis::before{top:-39px;transform:scaleY(-1)} .gratis::after{bottom:-39px}
+  .gratis .wrap{display:grid;grid-template-columns:320px 1fr;gap:44px;align-items:center}
+  .gratis h2{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem)}
+  .gratis img{background:#fff;border-radius:18px;padding:12px;transform:rotate(-4deg);border:4px solid var(--navy);box-shadow:8px 8px 0 var(--navy)}
+  form.email{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  form.email input{flex:1 1 240px;border:3px solid var(--navy);border-radius:14px;padding:13px 18px;font-size:1rem;font-family:inherit}
+  form.email button{border:3px solid var(--navy);background:var(--giallo);color:var(--navy);font-weight:800;border-radius:14px;padding:12px 24px;cursor:pointer;font-family:inherit;font-size:1rem;box-shadow:4px 4px 0 var(--navy)}
+  .nota{font-size:.88rem;opacity:.95;margin-top:10px}
+  .grazie{display:none;background:var(--navy);border-radius:14px;padding:12px 16px;margin-top:14px;font-weight:700}
+
+  .due{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .card{border-radius:var(--r);padding:28px;border:3px solid var(--navy);background:#fff;box-shadow:7px 7px 0 var(--navy)}
+  .card.video{background:#eaf7ff}
+  .card.video img{border-radius:16px;margin-bottom:16px;border:3px solid var(--navy)}
+  .card h3{font-size:1.7rem}
+  .card ul{padding-left:20px;margin:8px 0 18px}
+
+  footer{background:var(--navy);color:#cfe0f5;padding:38px 0 26px;font-size:.92rem}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+  footer a{color:#fff;text-decoration:none;font-weight:800;margin-right:16px}
+  footer small{display:block;margin-top:12px;opacity:.8}
+
+  @media (max-width:820px){
+    .menu{display:none}
+    .gratis .wrap,.due{grid-template-columns:1fr}
+    .gratis img{max-width:260px;margin:0 auto}
+    .pila img{width:34%}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="marchio" href="#"><img src="img/logo.png" alt="Logo Nico e Oscar">Nico e Oscar</a>
+    <nav class="menu">
+      <a href="#libri" data-t="nav_libri">I libri</a>
+      <a href="#gratis" data-t="nav_gratis">Disegno gratis</a>
+      <a href="#video" data-t="nav_video">Cartoni</a>
+      <a href="#scuole" data-t="nav_scuole">Scuole e negozi</a>
+    </nav>
+    <div class="lingue" aria-label="Lingua">
+      <button data-lg="it" class="on">IT</button><button data-lg="en">EN</button><button data-lg="de">DE</button>
+    </div>
+  </div>
+</header>
+<div class="strisce"></div>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag" data-t="hero_tag">Costruiamo con Nico e Oscar!</span>
+      <h1 data-t="hero_tit">Libri da colorare che raccontano come si costruisce il mondo</h1>
+      <p data-t="hero_txt">Nico è il costruttore con gli occhiali tondi, Oscar il suo cagnolino col caschetto giallo. Insieme costruiscono case, ospedali, asili… e ogni pagina è una piccola storia da colorare.</p>
+      <ul class="punti">
+        <li data-t="p1">Disegni grandi</li><li data-t="p2">Linee spesse</li><li data-t="p3">Una frase per pagina</li><li data-t="p4">Da 1 a 8 anni</li>
+      </ul>
+      <div class="bottoni">
+        <a class="btn giallo" href="#libri" data-t="cta1">Scopri i libri</a>
+        <a class="btn bianco" href="#gratis" data-t="cta2">Disegno gratis 🎨</a>
+      </div>
+    </div>
+    <div class="pila" aria-hidden="true">
+      <img src="img/natale.jpg" alt=""><img src="img/amici.jpg" alt=""><img src="img/casa.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<section id="libri">
+  <div class="wrap">
+    <div class="titolo-sez">
+      <h2 data-t="libri_tit">I libri di Nico e Oscar</h2>
+      <p data-t="libri_txt">Stampati su un solo lato, per colorare anche con i pennarelli. In vendita su Amazon.</p>
+    </div>
+    <div class="filtri" id="filtri"></div>
+    <div class="griglia" id="griglia"></div>
+  </div>
+</section>
+
+<div class="strisce"></div>
+<section class="gratis" id="gratis">
+  <div class="wrap">
+    <img src="img/disegno_gratis.jpg" alt="Disegno da colorare di Nico e Oscar">
+    <div>
+      <h2 data-t="gr_tit">Un disegno da colorare, gratis!</h2>
+      <p data-t="gr_txt">Lascia la tua email: ti mandiamo subito il disegno di Nico e Oscar da stampare, e ti avvisiamo quando esce un libro nuovo. Niente spam, promesso da Oscar 🐾</p>
+      <form class="email" id="formEmail">
+        <!-- DA COLLEGARE: account MailerLite/Brevo (gratis). Per ora il modulo scarica solo il PDF e non salva l'email. -->
+        <input type="email" required placeholder="La tua email" data-tp="gr_ph">
+        <button type="submit" data-t="gr_btn">Voglio il disegno</button>
+      </form>
+      <div class="grazie" id="grazie" data-t="gr_ok">Grazie! Il download è partito. Buon divertimento!</div>
+      <p class="nota" data-t="gr_nota">Iscrivendoti accetti di ricevere al massimo una email al mese. Puoi cancellarti quando vuoi.</p>
+    </div>
+  </div>
+</section>
+<div class="strisce"></div>
+
+<section id="video">
+  <div class="wrap due">
+    <div class="card video">
+      <img src="img/banner.jpg" alt="Nico e Oscar, cartoni animati">
+      <h3 data-t="v_tit">Nico e Oscar prendono vita!</h3>
+      <p data-t="v_txt">Sul nostro canale YouTube ci sono i cartoni animati delle storie dei libri: guardateli insieme e poi… tutti a colorare!</p>
+      <a class="btn giallo" href="https://www.youtube.com/@NicoeOscar" target="_blank" rel="noopener" data-t="v_btn">Guarda i cartoni ▶</a>
+    </div>
+    <div class="card" id="scuole">
+      <h3 data-t="s_tit">Per scuole, negozi e mercatini</h3>
+      <p data-t="s_txt">Siete una maestra, una libreria, una cartoleria o organizzate un mercatino? Possiamo fornire copie dei libri e pacchetti regalo con matite colorate.</p>
+      <ul>
+        <li data-t="s1">Copie per la classe</li>
+        <li data-t="s2">Pacchetti regalo libro + matite</li>
+        <li data-t="s3">Libri per negozi e cartolerie della zona</li>
+      </ul>
+      <!-- DA DECIDERE: indirizzo email del sito (es. info@nicoeoscar.it, da attivare col dominio) -->
+      <a class="btn bianco" href="mailto:info@nicoeoscar.it?subject=Libri%20Nico%20e%20Oscar" data-t="s_btn">Scrivici ✉</a>
+    </div>
+  </div>
+</section>
+
+<div class="strisce"></div>
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="https://www.youtube.com/@NicoeOscar" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/nicoeoscar" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.amazon.com/author/nicoeoscar" target="_blank" rel="noopener">Amazon</a>
+      <small data-t="f_priv">Questo sito non usa cookie di profilazione. Le email raccolte servono solo per inviare il disegno e le novità sui libri.</small>
+    </div>
+    <div><small>© 2026 MV · Nico e Oscar</small></div>
+    <div style="flex-basis:100%"><small data-t="f_diritti">Tutti i diritti riservati. È vietata la riproduzione, anche parziale, dei contenuti del sito, dei personaggi Nico e Oscar, delle illustrazioni e dei testi senza l'autorizzazione dell'autore. Il disegno gratuito può essere stampato solo per uso personale e non commerciale.</small></div>
+  </div>
+</footer>
+
+<script>
+/* Libri: per aggiungerne uno basta una riga qui. stato: "online" oppure "presto". */
+const LIBRI = [
+  {id:"casa", img:"img/casa.jpg", cat:"colora", stato:"online",
+   tit:{it:"Costruiamo una casa", en:"Let's Build a House", de:"Wir bauen ein Haus"},
+   eta:{it:"3-8 anni", en:"Ages 3-8", de:"3-8 Jahre"},
+   txt:{it:"Dallo scavo al tetto: il primo cantiere di Nico e Oscar, una tappa per pagina.", en:"From digging to the roof: Nico and Oscar's first building site, one step per page.", de:"Von der Baugrube bis zum Dach: die erste Baustelle von Nico und Oscar."},
+   link:{it:"https://www.amazon.it/dp/B0HLLR336K", en:"https://www.amazon.com/dp/B0HLMBDMR2"}},
+  {id:"amici", img:"img/amici.jpg", cat:"piccoli", stato:"online",
+   tit:{it:"Gli amici di Oscar", en:"Oscar's Animal Friends", de:"Oscars Tierfreunde"},
+   eta:{it:"1-4 anni", en:"Ages 1-4", de:"1-4 Jahre"},
+   txt:{it:"Il primo libro da colorare: 40 animali grandi e semplici, con nome e verso.", en:"A first coloring book: 40 big, simple animals with their names and sounds.", de:"Das erste Malbuch: 40 große, einfache Tiere mit Namen und Tierlaut."},
+   link:{it:"https://www.amazon.it/dp/B0HMNP6GB5"}},
+  {id:"natale", img:"img/natale.jpg", cat:"speciali", stato:"online",
+   tit:{it:"Il villaggio di Babbo Natale", en:"Santa's Village", de:"Das Weihnachtsdorf"},
+   eta:{it:"3-8 anni", en:"Ages 3-8", de:"3-8 Jahre"},
+   txt:{it:"Elfi, renne e un camino bello largo: il cantiere al Polo Nord!", en:"Elves, reindeer and a nice wide chimney: building at the North Pole!", de:"Wichtel, Rentiere und ein breiter Kamin: die Baustelle am Nordpol!"},
+   link:{it:"https://www.amazon.it/dp/B0HMNT7DQG"}},
+  {id:"halloween", img:"img/halloween.jpg", cat:"speciali", stato:"online",
+   tit:{it:"La casa dei fantasmi", en:"The Haunted House", de:"Das Geisterhaus"},
+   eta:{it:"3-8 anni", en:"Ages 3-8", de:"3-8 Jahre"},
+   txt:{it:"Nico e Oscar costruiscono una casa nuova per i fantasmini. Bu!", en:"Nico and Oscar build a brand-new home for the little ghosts. Boo!", de:"Nico und Oscar bauen den kleinen Geistern ein neues Haus. Buh!"},
+   link:{it:"https://www.amazon.it/dp/B0HLX31YWK"}},
+  {id:"ospedale", img:"img/ospedale.jpg", cat:"colora", stato:"presto",
+   tit:{it:"Costruiamo un ospedale", en:"Let's Build a Hospital", de:"Wir bauen ein Krankenhaus"},
+   eta:{it:"3-8 anni", en:"Ages 3-8", de:"3-8 Jahre"},
+   txt:{it:"Pali, gru e una piazzola per l'elicottero: nasce l'ospedale della città.", en:"Piles, cranes and a helipad: the city hospital comes to life.", de:"Pfähle, Kräne und ein Hubschrauberlandeplatz: das Krankenhaus entsteht."}, link:{}},
+  {id:"asilo", img:"img/asilo.jpg", cat:"colora", stato:"presto",
+   tit:{it:"Costruiamo un asilo", en:"Let's Build a Kindergarten", de:"Wir bauen einen Kindergarten"},
+   eta:{it:"3-8 anni", en:"Ages 3-8", de:"3-8 Jahre"},
+   txt:{it:"Pareti di legno, un tetto verde e tanti giochi per il primo giorno di Rebecca.", en:"Wooden walls, a green roof and lots of toys for Rebecca's first day.", de:"Holzwände, ein grünes Dach und viele Spiele für Rebeccas ersten Tag."}, link:{}},
+  {id:"giochi35", img:"img/giochi35.jpg", cat:"giochi", stato:"presto",
+   tit:{it:"Giochiamo con Oscar!", en:"Let's Play with Oscar!", de:"Spielen mit Oscar!"},
+   eta:{it:"3-5 anni", en:"Ages 3-5", de:"3-5 Jahre"},
+   txt:{it:"60 giochi a colori: labirinti, conta, trova le differenze, con soluzioni e diploma.", en:"60 color activities: mazes, counting, spot the difference, with answers and a diploma.", de:"60 bunte Spiele: Labyrinthe, Zählen, Fehlersuche, mit Lösungen und Urkunde."}, link:{}},
+];
+const CAT = {tutti:{it:"Tutti",en:"All",de:"Alle"}, colora:{it:"Da colorare 3-8",en:"Coloring 3-8",de:"Malbücher 3-8"},
+  piccoli:{it:"Piccolissimi 1-4",en:"Toddlers 1-4",de:"Kleinkinder 1-4"}, speciali:{it:"Feste",en:"Holidays",de:"Feste"}, giochi:{it:"Giochi",en:"Activities",de:"Spiele"}};
+const T = {
+  en:{nav_libri:"Books",nav_gratis:"Free page",nav_video:"Cartoons",nav_scuole:"Schools & shops",hero_tag:"Let's Build with Nico & Oscar!",
+    hero_tit:"Coloring books that show how the world is built",hero_txt:"Nico is the builder with round glasses, Oscar his puppy in a yellow hard hat. Together they build houses, hospitals, kindergartens… and every page is a little story to color.",
+    p1:"Big pictures",p2:"Thick lines",p3:"One sentence per page",p4:"Ages 1 to 8",cta1:"See the books",cta2:"Free coloring page 🎨",
+    libri_tit:"Nico & Oscar's books",libri_txt:"Printed on one side only, so markers won't bleed through. Available on Amazon.",
+    gr_tit:"A free coloring page!",gr_txt:"Leave your email: we'll send you a Nico & Oscar page to print right away and let you know when a new book comes out. No spam, Oscar promises 🐾",
+    gr_ph:"Your email",gr_btn:"Send me the page",gr_ok:"Thank you! Your download has started. Have fun!",gr_nota:"At most one email a month. Unsubscribe anytime.",
+    v_tit:"Nico & Oscar come to life!",v_txt:"Our YouTube channel has cartoons of the stories in the books: watch together, then… let's color!",v_btn:"Watch the cartoons ▶",
+    s_tit:"For schools, shops and markets",s_txt:"Are you a teacher, a bookshop or a stationery shop, or do you run a market stall? We can supply books and gift packs with colored pencils.",
+    s1:"Copies for the classroom",s2:"Gift packs: book + pencils",s3:"Books for local shops",s_btn:"Write to us ✉",f_priv:"This site uses no tracking cookies. Emails are used only to send the free page and book news.",
+    buy:"Buy on Amazon",soon:"Coming soon",nolg:"Coming soon in English",
+    f_diritti:"All rights reserved. No part of this website, including the characters Nico and Oscar, illustrations and texts, may be reproduced without the author's permission. The free coloring page may be printed for personal, non-commercial use only."},
+  de:{nav_libri:"Bücher",nav_gratis:"Gratis-Bild",nav_video:"Zeichentrick",nav_scuole:"Schulen & Läden",hero_tag:"Wir bauen mit Nico & Oscar!",
+    hero_tit:"Malbücher, die zeigen, wie die Welt gebaut wird",hero_txt:"Nico ist der Bauarbeiter mit der runden Brille, Oscar sein Hund mit dem gelben Helm. Zusammen bauen sie Häuser, Krankenhäuser, Kindergärten… und jede Seite ist eine kleine Geschichte zum Ausmalen.",
+    p1:"Große Bilder",p2:"Dicke Linien",p3:"Ein Satz pro Seite",p4:"Von 1 bis 8 Jahren",cta1:"Zu den Büchern",cta2:"Gratis-Malbild 🎨",
+    libri_tit:"Die Bücher von Nico & Oscar",libri_txt:"Einseitig bedruckt – auch Filzstifte drücken nicht durch. Erhältlich bei Amazon.",
+    gr_tit:"Ein Malbild gratis!",gr_txt:"Hinterlasse deine E-Mail: Du bekommst sofort ein Bild von Nico & Oscar zum Ausdrucken und erfährst, wenn ein neues Buch erscheint. Kein Spam, versprochen 🐾",
+    gr_ph:"Deine E-Mail",gr_btn:"Bild herunterladen",gr_ok:"Danke! Der Download hat begonnen. Viel Spaß!",gr_nota:"Höchstens eine E-Mail im Monat. Abmeldung jederzeit möglich.",
+    v_tit:"Nico & Oscar werden lebendig!",v_txt:"Auf unserem YouTube-Kanal gibt es die Geschichten als Zeichentrick: zusammen anschauen und dann… ausmalen!",v_btn:"Zeichentrick ansehen ▶",
+    s_tit:"Für Schulen, Läden und Märkte",s_txt:"Sie sind Lehrerin, Buchhandlung oder Schreibwarenladen oder haben einen Marktstand? Wir liefern Bücher und Geschenksets mit Buntstiften.",
+    s1:"Bücher für die Klasse",s2:"Geschenksets Buch + Stifte",s3:"Bücher für Läden vor Ort",s_btn:"Schreiben Sie uns ✉",f_priv:"Diese Seite verwendet keine Tracking-Cookies. E-Mails dienen nur dem Gratis-Bild und Buch-Neuigkeiten.",
+    buy:"Bei Amazon kaufen",soon:"Bald erhältlich",nolg:"Bald auf Deutsch",
+    f_diritti:"Alle Rechte vorbehalten. Die Vervielfältigung der Inhalte dieser Website, der Figuren Nico und Oscar, der Illustrationen und Texte – auch auszugsweise – ist ohne Zustimmung des Autors untersagt. Das Gratis-Malbild darf nur für den privaten, nicht kommerziellen Gebrauch ausgedruckt werden."},
+  it:{buy:"Compra su Amazon",soon:"In arrivo",nolg:""}
+};
+const IT_TXT = {};
+document.querySelectorAll("[data-t]").forEach(e => IT_TXT[e.dataset.t] = e.innerHTML);
+document.querySelectorAll("[data-tp]").forEach(e => IT_TXT[e.dataset.tp] = e.placeholder);
+
+let lg = "it", filtro = "tutti";
+try { const s = localStorage.getItem("lg"); if (s && T[s]) lg = s; } catch (e) {}
+
+function testo(k){ return (T[lg] && T[lg][k]) || IT_TXT[k] || T.it[k] || ""; }
+
+function disegna(){
+  document.documentElement.lang = lg;
+  document.querySelectorAll("[data-t]").forEach(e => e.innerHTML = testo(e.dataset.t));
+  document.querySelectorAll("[data-tp]").forEach(e => e.placeholder = testo(e.dataset.tp));
+  document.querySelectorAll(".lingue button").forEach(b => b.classList.toggle("on", b.dataset.lg === lg));
+  const f = document.getElementById("filtri");
+  f.innerHTML = Object.keys(CAT).map(k => `<button data-f="${k}" class="${k===filtro?"on":""}">${CAT[k][lg]}</button>`).join("");
+  f.querySelectorAll("button").forEach(b => b.onclick = () => { filtro = b.dataset.f; disegna(); });
+  const g = document.getElementById("griglia");
+  g.innerHTML = LIBRI.filter(l => filtro === "tutti" || l.cat === filtro).map(l => {
+    const url = l.link[lg] || (lg === "de" ? null : null);
+    let compra;
+    if (l.stato === "presto") compra = `<span>${testo("soon")}</span>`;
+    else if (url) compra = `<a href="${url}" target="_blank" rel="noopener">${testo("buy")}</a>`;
+    else if (l.link.it) compra = `<span>${testo("nolg")}</span><a href="${l.link.it}" target="_blank" rel="noopener">Amazon.it</a>`;
+    else compra = `<span>${testo("soon")}</span>`;
+    return `<article class="libro">
+      <div class="cop">${l.stato==="presto"?`<span class="badge">${testo("soon")}</span>`:""}<img src="${l.img}" alt="${l.tit[lg]}" loading="lazy"></div>
+      <div class="dati"><span class="eta">${l.eta[lg]}</span><h3>${l.tit[lg]}</h3><p>${l.txt[lg]}</p><div class="compra">${compra}</div></div>
+    </article>`;
+  }).join("");
+}
+document.querySelectorAll(".lingue button").forEach(b => b.onclick = () => {
+  lg = b.dataset.lg; try { localStorage.setItem("lg", lg); } catch (e) {} disegna();
+});
+document.getElementById("formEmail").addEventListener("submit", ev => {
+  ev.preventDefault();
+  const a = document.createElement("a"); a.href = "disegno_gratis_Nico_e_Oscar.pdf"; a.download = ""; a.click();
+  document.getElementById("grazie").style.display = "block";
+});
+disegna();
+</script>
+</body>
+</html>
