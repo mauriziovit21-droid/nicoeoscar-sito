@@ -112,6 +112,14 @@
   .errore{display:none;background:#fff;color:#b3261e;border-radius:14px;padding:10px 16px;margin-top:14px;font-weight:700}
   .grazie{display:none;background:var(--navy);border-radius:14px;padding:12px 16px;margin-top:14px;font-weight:700}
 
+  .chi{padding:70px 0 30px}
+  .chi .box{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center;background:#fff;border:3px solid var(--navy);
+    border-radius:var(--r);box-shadow:7px 7px 0 var(--navy);padding:32px 36px}
+  .chi img{width:100%;max-width:260px;margin:0 auto;transform:rotate(-3deg)}
+  .chi h2{font-size:clamp(1.8rem,4vw,2.4rem)}
+  .chi p{margin:0 0 12px;color:var(--testo)}
+  .chi .firma{font-family:"Fredoka",sans-serif;font-weight:700;color:var(--navy);margin-top:16px}
+  @media (max-width:820px){ .chi .box{grid-template-columns:1fr;padding:24px} .chi img{max-width:200px} }
   .due{display:grid;grid-template-columns:1fr 1fr;gap:30px}
   .card{border-radius:var(--r);padding:28px;border:3px solid var(--navy);background:#fff;box-shadow:7px 7px 0 var(--navy)}
   .card.video{background:#eaf7ff}
@@ -204,6 +212,21 @@
   </div>
 </section>
 <div class="strisce"></div>
+
+<section class="chi" id="chi">
+  <div class="wrap">
+    <div class="box">
+      <img src="img/nico_oscar.png" alt="Nico e il cagnolino Oscar" loading="lazy">
+      <div>
+        <h2 data-t="chi_tit">Chi c'è dietro Nico e Oscar</h2>
+        <p data-t="chi_p1">Nico e Oscar sono nati in un cantiere vero. Chi li ha inventati è un progettista che da anni lavora tra gru, betoniere e muratori, e che si è accorto di una cosa: i bambini guardano i cantieri a bocca aperta e fanno mille domande.</p>
+        <p data-t="chi_p2">"Come si costruisce una casa? A cosa serve la gru? Perché la betoniera gira?" Da queste domande sono nati Nico, il costruttore con gli occhiali tondi, e Oscar, il cagnolino col caschetto giallo che ne combina sempre una.</p>
+        <p data-t="chi_p3">Ogni libro racconta un cantiere com'è davvero, passo dopo passo, con disegni grandi e semplici da colorare. Perché imparare come nasce il mondo intorno a noi può essere un gioco.</p>
+        <p class="firma" data-t="chi_firma">— MV, autore di "Costruiamo con Nico e Oscar!"</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="video">
   <div class="wrap due">
@@ -320,7 +343,7 @@ const T = {
     gr_cons:"I have read the <a href=\"privacy.html\" target=\"_blank\">privacy policy</a> and want to receive the free page and Nico & Oscar news.",
     gr_ok:"Thank you! Your page is downloading. We also sent you an email with the link, so you can download it again anytime.",
     err_mail:"Please enter a valid email address.",err_cons:"Please tick the privacy box.",
-    buy:"Buy on Amazon",soon:"Coming soon",nolg:"Coming soon in English",dentro:"Look inside: tap a page",
+    chi_tit:"Who is behind Nico & Oscar",chi_p1:"Nico and Oscar were born on a real building site. Their creator is a building designer who has spent years among cranes, cement mixers and bricklayers, and noticed one thing: children stare at building sites in amazement and ask a thousand questions.",chi_p2:"\"How do you build a house? What is a crane for? Why does the cement mixer spin?\" Those questions gave birth to Nico, the builder with round glasses, and Oscar, the puppy in a yellow hard hat who is always up to something.",chi_p3:"Every book tells the story of a real building site, step by step, with big and simple pictures to color. Because learning how the world around us is built can be a game.",chi_firma:"— MV, author of \"Let's Build with Nico & Oscar!\"",buy:"Buy on Amazon",soon:"Coming soon",nolg:"Coming soon in English",dentro:"Look inside: tap a page",
     f_diritti:"All rights reserved. No part of this website, including the characters Nico and Oscar, illustrations and texts, may be reproduced without the author's permission. The free coloring page may be printed for personal, non-commercial use only."},
   de:{nav_libri:"Bücher",nav_gratis:"Gratis-Bild",nav_video:"Zeichentrick",nav_scuole:"Schulen & Läden",hero_tag:"Wir bauen mit Nico & Oscar!",
     hero_tit:"Malbücher, die zeigen, wie die Welt gebaut wird",hero_txt:"Nico ist der Bauarbeiter mit der runden Brille, Oscar sein Hund mit dem gelben Helm. Zusammen bauen sie Häuser, Krankenhäuser, Kindergärten… und jede Seite ist eine kleine Geschichte zum Ausmalen.",
@@ -334,7 +357,7 @@ const T = {
     gr_cons:"Ich habe die <a href=\"privacy.html\" target=\"_blank\">Datenschutzerklärung</a> gelesen und möchte das Malbild und Neuigkeiten von Nico & Oscar erhalten.",
     gr_ok:"Danke! Dein Bild wird heruntergeladen. Wir haben dir auch eine E-Mail mit dem Link geschickt.",
     err_mail:"Bitte gib eine gültige E-Mail-Adresse ein.",err_cons:"Bitte bestätige den Datenschutz-Hinweis.",
-    buy:"Bei Amazon kaufen",soon:"Bald erhältlich",nolg:"Bald auf Deutsch",dentro:"Blick ins Buch: Seite antippen",
+    chi_tit:"Wer hinter Nico & Oscar steckt",chi_p1:"Nico und Oscar sind auf einer echten Baustelle entstanden. Ihr Erfinder ist Bauplaner und arbeitet seit Jahren zwischen Kränen, Betonmischern und Maurern. Dabei ist ihm etwas aufgefallen: Kinder bestaunen Baustellen mit offenem Mund und stellen tausend Fragen.",chi_p2:"\"Wie baut man ein Haus? Wozu ist der Kran da? Warum dreht sich der Betonmischer?\" Aus diesen Fragen sind Nico, der Bauarbeiter mit der runden Brille, und Oscar, der Hund mit dem gelben Helm, entstanden.",chi_p3:"Jedes Buch erzählt eine echte Baustelle, Schritt für Schritt, mit großen und einfachen Bildern zum Ausmalen. Denn zu lernen, wie die Welt um uns herum entsteht, kann ein Spiel sein.",chi_firma:"— MV, Autor von \"Wir bauen mit Nico & Oscar!\"",buy:"Bei Amazon kaufen",soon:"Bald erhältlich",nolg:"Bald auf Deutsch",dentro:"Blick ins Buch: Seite antippen",
     f_diritti:"Alle Rechte vorbehalten. Die Vervielfältigung der Inhalte dieser Website, der Figuren Nico und Oscar, der Illustrationen und Texte – auch auszugsweise – ist ohne Zustimmung des Autors untersagt. Das Gratis-Malbild darf nur für den privaten, nicht kommerziellen Gebrauch ausgedruckt werden."},
   it:{buy:"Compra su Amazon",soon:"In arrivo",nolg:"",dentro:"Sfoglia: tocca una pagina",err_mail:"Scrivi un indirizzo email valido.",err_cons:"Spunta la casella della privacy."}
 };
