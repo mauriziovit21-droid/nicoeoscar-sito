@@ -47,6 +47,16 @@
   .lingue button{border:none;background:transparent;color:#cfe0f5;border-radius:10px;padding:5px 9px;font-weight:800;cursor:pointer;font-family:inherit}
   .lingue button.on{background:var(--giallo);color:var(--navy)}
 
+  .natale{display:none;padding:0;background:#c62828;color:#fff;border-bottom:4px solid var(--navy)}
+  .natale.on{display:block}
+  .natale .wrap{display:flex;align-items:center;gap:22px;padding:18px 20px;flex-wrap:wrap}
+  .natale img{width:120px;border-radius:10px;border:4px solid #fff;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--navy)}
+  .natale .txt{flex:1 1 300px}
+  .natale h2{color:#fff;font-size:clamp(1.4rem,3vw,1.9rem);margin:0 0 4px}
+  .natale p{margin:0;font-weight:700;opacity:.95}
+  .natale .azioni{display:flex;gap:10px;flex-wrap:wrap}
+  .natale .btn{padding:11px 20px}
+  @media (max-width:620px){ .natale .wrap{justify-content:center;text-align:center} .natale img{width:100px} .natale .azioni{justify-content:center} }
   .hero{padding:56px 0 30px;text-align:center}
   .hero .wrap{display:block}
   .tag{display:inline-block;background:var(--rosso);color:#fff;font-weight:800;border-radius:12px;padding:6px 16px;margin-bottom:16px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--navy)}
@@ -166,6 +176,20 @@
 </header>
 <div class="strisce"></div>
 
+<!-- Riquadro di Natale: visibile da solo dal 1/11 al 24/12 (anteprima: nicoeoscar.it/?natale=1) -->
+<section class="natale" id="natale">
+  <div class="wrap">
+    <img src="img/natale.jpg" alt="Costruiamo il villaggio di Babbo Natale">
+    <div class="txt">
+      <h2 data-t="nat_tit">🎄 Idea regalo di Natale</h2>
+      <p data-t="nat_txt">Nico e Oscar costruiscono il villaggio di Babbo Natale: elfi, renne e un camino bello largo da colorare!</p>
+    </div>
+    <div class="azioni">
+      <a class="btn giallo" id="natLink" href="https://www.amazon.it/dp/B0HMNT7DQG" target="_blank" rel="noopener" data-t="nat_btn">Regalalo su Amazon 🎁</a>
+      <a class="btn bianco" href="#scuole" data-t="nat_pac">Pacchetto con matite</a>
+    </div>
+  </div>
+</section>
 <section class="hero">
   <div class="wrap">
     <div>
@@ -349,7 +373,7 @@ const T = {
     gr_cons:"I have read the <a href=\"privacy.html\" target=\"_blank\">privacy policy</a> and want to receive the free page and Nico & Oscar news.",
     gr_ok:"Thank you! Your page is downloading. We also sent you an email with the link, so you can download it again anytime.",
     err_mail:"Please enter a valid email address.",err_cons:"Please tick the privacy box.",
-    chi_tit:"Who is behind Nico & Oscar",chi_p1:"Nico and Oscar were born on a real building site. Their creator is a building designer who has spent years among cranes, cement mixers and bricklayers, and noticed one thing: children stare at building sites in amazement and ask a thousand questions.",chi_p2:"\"How do you build a house? What is a crane for? Why does the cement mixer spin?\" Those questions gave birth to Nico, the builder with round glasses, and Oscar, the puppy in a yellow hard hat who is always up to something.",chi_p3:"Every book tells the story of a real building site, step by step, with big and simple pictures to color. Because learning how the world around us is built can be a game.",chi_firma:"— MV, author of \"Let's Build with Nico & Oscar!\"",buy:"Buy on Amazon",soon:"Coming soon",nolg:"Coming soon in English",dentro:"Look inside: tap a page",
+    chi_tit:"Who is behind Nico & Oscar",chi_p1:"Nico and Oscar were born on a real building site. Their creator is a building designer who has spent years among cranes, cement mixers and bricklayers, and noticed one thing: children stare at building sites in amazement and ask a thousand questions.",chi_p2:"\"How do you build a house? What is a crane for? Why does the cement mixer spin?\" Those questions gave birth to Nico, the builder with round glasses, and Oscar, the puppy in a yellow hard hat who is always up to something.",chi_p3:"Every book tells the story of a real building site, step by step, with big and simple pictures to color. Because learning how the world around us is built can be a game.",chi_firma:"— MV, author of \"Let's Build with Nico & Oscar!\"",nat_tit:"🎄 A Christmas gift idea",nat_txt:"Nico and Oscar build Santa's village: elves, reindeer and a nice wide chimney to color!",nat_btn:"Gift it on Amazon 🎁",nat_pac:"Gift pack with pencils",buy:"Buy on Amazon",soon:"Coming soon",nolg:"Coming soon in English",dentro:"Look inside: tap a page",
     f_diritti:"All rights reserved. No part of this website, including the characters Nico and Oscar, illustrations and texts, may be reproduced without the author's permission. The free coloring page may be printed for personal, non-commercial use only."},
   de:{nav_libri:"Bücher",nav_gratis:"Gratis-Bild",nav_video:"Zeichentrick",nav_scuole:"Schulen & Läden",hero_tag:"Wir bauen mit Nico & Oscar!",
     hero_tit:"Malbücher, die zeigen, wie die Welt gebaut wird",hero_txt:"Nico ist der Bauarbeiter mit der runden Brille, Oscar sein Hund mit dem gelben Helm. Zusammen bauen sie Häuser, Krankenhäuser, Kindergärten… und jede Seite ist eine kleine Geschichte zum Ausmalen.",
@@ -363,7 +387,7 @@ const T = {
     gr_cons:"Ich habe die <a href=\"privacy.html\" target=\"_blank\">Datenschutzerklärung</a> gelesen und möchte das Malbild und Neuigkeiten von Nico & Oscar erhalten.",
     gr_ok:"Danke! Dein Bild wird heruntergeladen. Wir haben dir auch eine E-Mail mit dem Link geschickt.",
     err_mail:"Bitte gib eine gültige E-Mail-Adresse ein.",err_cons:"Bitte bestätige den Datenschutz-Hinweis.",
-    chi_tit:"Wer hinter Nico & Oscar steckt",chi_p1:"Nico und Oscar sind auf einer echten Baustelle entstanden. Ihr Erfinder ist Bauplaner und arbeitet seit Jahren zwischen Kränen, Betonmischern und Maurern. Dabei ist ihm etwas aufgefallen: Kinder bestaunen Baustellen mit offenem Mund und stellen tausend Fragen.",chi_p2:"\"Wie baut man ein Haus? Wozu ist der Kran da? Warum dreht sich der Betonmischer?\" Aus diesen Fragen sind Nico, der Bauarbeiter mit der runden Brille, und Oscar, der Hund mit dem gelben Helm, entstanden.",chi_p3:"Jedes Buch erzählt eine echte Baustelle, Schritt für Schritt, mit großen und einfachen Bildern zum Ausmalen. Denn zu lernen, wie die Welt um uns herum entsteht, kann ein Spiel sein.",chi_firma:"— MV, Autor von \"Wir bauen mit Nico & Oscar!\"",buy:"Bei Amazon kaufen",soon:"Bald erhältlich",nolg:"Bald auf Deutsch",dentro:"Blick ins Buch: Seite antippen",
+    chi_tit:"Wer hinter Nico & Oscar steckt",chi_p1:"Nico und Oscar sind auf einer echten Baustelle entstanden. Ihr Erfinder ist Bauplaner und arbeitet seit Jahren zwischen Kränen, Betonmischern und Maurern. Dabei ist ihm etwas aufgefallen: Kinder bestaunen Baustellen mit offenem Mund und stellen tausend Fragen.",chi_p2:"\"Wie baut man ein Haus? Wozu ist der Kran da? Warum dreht sich der Betonmischer?\" Aus diesen Fragen sind Nico, der Bauarbeiter mit der runden Brille, und Oscar, der Hund mit dem gelben Helm, entstanden.",chi_p3:"Jedes Buch erzählt eine echte Baustelle, Schritt für Schritt, mit großen und einfachen Bildern zum Ausmalen. Denn zu lernen, wie die Welt um uns herum entsteht, kann ein Spiel sein.",chi_firma:"— MV, Autor von \"Wir bauen mit Nico & Oscar!\"",nat_tit:"🎄 Geschenkidee zu Weihnachten",nat_txt:"Nico und Oscar bauen das Weihnachtsdorf: Wichtel, Rentiere und ein breiter Kamin zum Ausmalen!",nat_btn:"Bei Amazon verschenken 🎁",nat_pac:"Geschenkset mit Stiften",buy:"Bei Amazon kaufen",soon:"Bald erhältlich",nolg:"Bald auf Deutsch",dentro:"Blick ins Buch: Seite antippen",
     f_diritti:"Alle Rechte vorbehalten. Die Vervielfältigung der Inhalte dieser Website, der Figuren Nico und Oscar, der Illustrationen und Texte – auch auszugsweise – ist ohne Zustimmung des Autors untersagt. Das Gratis-Malbild darf nur für den privaten, nicht kommerziellen Gebrauch ausgedruckt werden."},
   it:{buy:"Compra su Amazon",soon:"In arrivo",nolg:"",dentro:"Sfoglia: tocca una pagina",err_mail:"Scrivi un indirizzo email valido.",err_cons:"Spunta la casella della privacy."}
 };
@@ -439,7 +463,20 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowRight") { zI = zI === 3 ? 1 : zI + 1; zMostra(); }
   if (e.key === "ArrowLeft") { zI = zI === 1 ? 3 : zI - 1; zMostra(); }
 });
-disegna();
+
+/* Riquadro di Natale: dal 1 novembre al 24 dicembre (o con ?natale=1) */
+(function(){
+  const oggi = new Date(), m = oggi.getMonth() + 1, g = oggi.getDate();
+  const periodo = m === 11 || (m === 12 && g <= 24);
+  if (periodo || location.search.includes("natale=1")) document.getElementById("natale").classList.add("on");
+})();
+function linkNatale(){
+  const l = LIBRI.find(x => x.id === "natale");
+  const a = document.getElementById("natLink");
+  if (l && a) a.href = l.link[lg] || l.link.it;
+}
+disegna(); linkNatale();
+document.querySelectorAll(".lingue button").forEach(b => b.addEventListener("click", linkNatale));
 </script>
 </body>
 </html>
