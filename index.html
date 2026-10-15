@@ -50,14 +50,14 @@
   .natale{display:none;padding:0;background:#c62828;color:#fff;border-bottom:4px solid var(--navy)}
   .natale.on{display:block}
   .natale .wrap{display:flex;align-items:center;gap:22px;padding:18px 20px;flex-wrap:wrap}
-  .natale img{width:120px;border-radius:10px;border:4px solid #fff;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--navy)}
+  .natale img{width:260px;border-radius:10px;border:4px solid #fff;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--navy)}
   .natale .txt{flex:1 1 300px}
   .natale h2{color:#fff;font-size:clamp(1.4rem,3vw,1.9rem);margin:0 0 4px}
   .natale p{margin:0;font-weight:700;opacity:.95}
   .natale .nat-nota{margin-top:8px;font-size:.92rem;background:rgba(255,255,255,.15);border-radius:10px;padding:6px 12px;display:inline-block}
-  .natale .azioni{display:flex;gap:10px;flex-wrap:wrap}
+  .natale .azioni{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
   .natale .btn{padding:11px 20px}
-  @media (max-width:620px){ .natale .wrap{justify-content:center;text-align:center} .natale img{width:100px} .natale .azioni{justify-content:center} }
+  @media (max-width:620px){ .natale .wrap{justify-content:center;text-align:center} .natale img{width:240px} .natale .azioni{justify-content:center} }
   .hero{padding:56px 0 30px;text-align:center}
   .hero .wrap{display:block}
   .tag{display:inline-block;background:var(--rosso);color:#fff;font-weight:800;border-radius:12px;padding:6px 16px;margin-bottom:16px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--navy)}
@@ -180,16 +180,17 @@
 <!-- Riquadro di Natale: visibile da solo dal 1/11 al 24/12 (anteprima: nicoeoscar.it/?natale=1) -->
 <section class="natale" id="natale">
   <div class="wrap">
-    <img src="img/natale.jpg" alt="Costruiamo il villaggio di Babbo Natale">
+    <img src="img/pacchetto_natale.jpg" alt="Pacchetto regalo Nico e Oscar: libro e matite colorate">
     <div class="txt">
       <h2 data-t="nat_tit">🎄 Idea regalo di Natale</h2>
       <p data-t="nat_txt">Nico e Oscar costruiscono il villaggio di Babbo Natale: elfi, renne e un camino bello largo da colorare!</p>
       <p class="nat-nota" data-t="nat_nota">🎁 Pacchetto regalo libro + matite colorate: solo su ordinazione, con consegna a mano. Scrivici!</p>
-    </div>
-    <div class="azioni">
+      <div class="azioni">
       <a class="btn giallo" id="natLink" href="https://www.amazon.it/dp/B0HMNT7DQG" target="_blank" rel="noopener" data-t="nat_btn">Regalalo su Amazon 🎁</a>
       <a class="btn bianco" href="mailto:info@nicoeoscar.it?subject=Ordine%20pacchetto%20regalo%20Nico%20e%20Oscar&body=Ciao!%20Vorrei%20ordinare%20il%20pacchetto%20regalo%20(libro%20%2B%20matite).%0A%0ALibro%3A%20%0AQuantit%C3%A0%3A%20%0AZona%3A%20" data-t="nat_pac">Ordina il pacchetto con matite ✉</a>
     </div>
+    </div>
+
   </div>
 </section>
 <section class="hero">
