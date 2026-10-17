@@ -142,6 +142,11 @@
   .card{border-radius:var(--r);padding:28px;border:3px solid var(--navy);background:#fff;box-shadow:7px 7px 0 var(--navy)}
   .card.video{background:#eaf7ff}
   .card.video img{border-radius:16px;margin-bottom:16px;border:3px solid var(--navy)}
+  .yt{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;margin-bottom:16px}
+  .yt img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;margin:0}
+  .yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-60%);width:78px;height:78px;border-radius:50%;background:#e62117;color:#fff;font-size:34px;line-height:78px;text-align:center;border:3px solid var(--navy);box-shadow:4px 4px 0 var(--navy);transition:transform .15s}
+  .yt:hover .play{transform:translate(-50%,-60%) scale(1.08)}
+  .card.video iframe{display:block;width:100%;aspect-ratio:16/9;border:3px solid var(--navy);border-radius:16px;margin-bottom:16px}
   .card h3{font-size:1.7rem}
   .card ul{padding-left:20px;margin:8px 0 18px}
 
@@ -265,9 +270,11 @@
 <section id="video">
   <div class="wrap due">
     <div class="card video">
-      <img src="img/banner.jpg" alt="Nico e Oscar, cartoni animati">
-      <h3 data-t="v_tit">Nico e Oscar prendono vita!</h3>
-      <p data-t="v_txt">Sul nostro canale YouTube ci sono i cartoni animati delle storie dei libri: guardateli insieme e poi… tutti a colorare!</p>
+      <button class="yt" id="ytRuspe" data-id="6pFHzmNxKpI" aria-label="Guarda Brum brum! La canzone delle ruspe di Oscar">
+        <img src="img/video_ruspe.jpg" alt="Brum brum! La canzone delle ruspe di Oscar" loading="lazy"><span class="play">▶</span>
+      </button>
+      <h3 data-t="v_tit">Brum brum! La canzone delle ruspe</h3>
+      <p data-t="v_txt">Il nuovo cartone di Oscar: una canzone allegra con l'escavatore, la betoniera, la gru e tutti i mezzi del cantiere. Cantatela insieme e poi… tutti a colorare!</p>
       <a class="btn giallo" href="https://www.youtube.com/@NicoeOscar" target="_blank" rel="noopener" data-t="v_btn">Guarda i cartoni ▶</a>
     </div>
     <div class="card" id="scuole">
@@ -371,7 +378,7 @@ const T = {
     libri_tit:"Nico & Oscar's books",libri_txt:"Printed on one side only, so markers won't bleed through. Available on Amazon.",
     gr_tit:"A free coloring page!",gr_txt:"Leave your email: we'll send you a Nico & Oscar page to print right away and let you know when a new book comes out. No spam, Oscar promises 🐾",
     gr_ph:"Your email",gr_btn:"Send me the page",gr_ok:"Thank you! Your download has started. Have fun!",gr_nota:"At most one email a month. Unsubscribe anytime.",
-    v_tit:"Nico & Oscar come to life!",v_txt:"Our YouTube channel has cartoons of the stories in the books: watch together, then… let's color!",v_btn:"Watch the cartoons ▶",
+    v_tit:"Vroom vroom! Oscar's digger song",v_txt:"Oscar's new cartoon: a happy song with the excavator, the cement mixer, the crane and all the construction vehicles (sung in Italian). Sing along, then… let's color!",v_btn:"Watch the cartoons ▶",
     s_tit:"For schools, shops and markets",s_txt:"Are you a teacher, a bookshop or a stationery shop, or do you run a market stall? We can supply books and gift packs with colored pencils.",
     s1:"Copies for the classroom",s2:"Gift packs: book + pencils",s3:"Books for local shops",s_btn:"Write to us ✉",f_priv:"This site uses no tracking cookies. Emails are used only to send the free page and book news.",
     gr_cons:"I have read the <a href=\"privacy.html\" target=\"_blank\">privacy policy</a> and want to receive the free page and Nico & Oscar news.",
@@ -385,7 +392,7 @@ const T = {
     libri_tit:"Die Bücher von Nico & Oscar",libri_txt:"Einseitig bedruckt – auch Filzstifte drücken nicht durch. Erhältlich bei Amazon.",
     gr_tit:"Ein Malbild gratis!",gr_txt:"Hinterlasse deine E-Mail: Du bekommst sofort ein Bild von Nico & Oscar zum Ausdrucken und erfährst, wenn ein neues Buch erscheint. Kein Spam, versprochen 🐾",
     gr_ph:"Deine E-Mail",gr_btn:"Bild herunterladen",gr_ok:"Danke! Der Download hat begonnen. Viel Spaß!",gr_nota:"Höchstens eine E-Mail im Monat. Abmeldung jederzeit möglich.",
-    v_tit:"Nico & Oscar werden lebendig!",v_txt:"Auf unserem YouTube-Kanal gibt es die Geschichten als Zeichentrick: zusammen anschauen und dann… ausmalen!",v_btn:"Zeichentrick ansehen ▶",
+    v_tit:"Brumm brumm! Oscars Baggerlied",v_txt:"Oscars neuer Zeichentrick: ein fröhliches Lied mit Bagger, Betonmischer, Kran und allen Baustellenfahrzeugen (auf Italienisch gesungen). Mitsingen und dann… ausmalen!",v_btn:"Zeichentrick ansehen ▶",
     s_tit:"Für Schulen, Läden und Märkte",s_txt:"Sie sind Lehrerin, Buchhandlung oder Schreibwarenladen oder haben einen Marktstand? Wir liefern Bücher und Geschenksets mit Buntstiften.",
     s1:"Bücher für die Klasse",s2:"Geschenksets Buch + Stifte",s3:"Bücher für Läden vor Ort",s_btn:"Schreiben Sie uns ✉",f_priv:"Diese Seite verwendet keine Tracking-Cookies. E-Mails dienen nur dem Gratis-Bild und Buch-Neuigkeiten.",
     gr_cons:"Ich habe die <a href=\"privacy.html\" target=\"_blank\">Datenschutzerklärung</a> gelesen und möchte das Malbild und Neuigkeiten von Nico & Oscar erhalten.",
@@ -481,6 +488,15 @@ function linkNatale(){
 }
 disegna(); linkNatale();
 document.querySelectorAll(".lingue button").forEach(b => b.addEventListener("click", linkNatale));
+// video YouTube: si carica solo al clic (nessun cookie prima)
+document.querySelectorAll(".yt").forEach(b => b.addEventListener("click", () => {
+  const f = document.createElement("iframe");
+  f.src = "https://www.youtube-nocookie.com/embed/" + b.dataset.id + "?autoplay=1&rel=0";
+  f.title = b.getAttribute("aria-label");
+  f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+  f.allowFullscreen = true;
+  b.replaceWith(f);
+}, { once: true }));
 </script>
 </body>
 </html>
