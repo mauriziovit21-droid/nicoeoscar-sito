@@ -108,6 +108,7 @@
   #zoom .prev{left:14px} #zoom .next{right:14px}
   .libro .dati{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
   .libro h3{font-size:1.35rem;margin:0}
+  .libro h3 a{text-decoration:none} .libro h3 a:hover{text-decoration:underline}
   .eta{align-self:flex-start;font-weight:800;color:#fff;background:var(--c);font-size:.85rem;border-radius:8px;padding:2px 10px}
   .libro p{margin:0;color:var(--grigio);font-size:.95rem;flex:1}
   .compra{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
@@ -328,17 +329,17 @@ const LIBRI = [
    eta:{it:"3-8 anni", en:"Ages 3-8", de:"3-8 Jahre"},
    txt:{it:"Pareti di legno, un tetto verde e tanti giochi per il primo giorno di Rebecca.", en:"Wooden walls, a green roof and lots of toys for Rebecca's first day.", de:"Holzwände, ein grünes Dach und viele Spiele für Rebeccas ersten Tag."},
    link:{it:"https://www.amazon.it/dp/B0HPK784V2"}},
-  {id:"amici", img:"img/amici.jpg", cat:"piccoli", stato:"online",
+  {id:"amici", pagina:"amici/", img:"img/amici.jpg", cat:"piccoli", stato:"online",
    tit:{it:"Gli amici di Oscar", en:"Oscar's Animal Friends", de:"Oscars Tierfreunde"},
    eta:{it:"1-4 anni", en:"Ages 1-4", de:"1-4 Jahre"},
    txt:{it:"Il primo libro da colorare: 40 animali grandi e semplici, con nome e verso.", en:"A first coloring book: 40 big, simple animals with their names and sounds.", de:"Das erste Malbuch: 40 große, einfache Tiere mit Namen und Tierlaut."},
    link:{it:"https://www.amazon.it/dp/B0HMNP6GB5"}},
-  {id:"ruspe", img:"img/ruspe.jpg", cat:"piccoli", stato:"online",
+  {id:"ruspe", pagina:"ruspe/", img:"img/ruspe.jpg", cat:"piccoli", stato:"online",
    tit:{it:"Le ruspe di Oscar", en:"Oscar's Diggers", de:"Oscars Bagger"},
    eta:{it:"2-4 anni", en:"Ages 2-4", de:"2-4 Jahre"},
    txt:{it:"40 mezzi da cantiere grandi e semplici, con nome e rumore: Brum brum!", en:"40 big, simple construction vehicles with their names and sounds: Vroom!", de:"40 große, einfache Baufahrzeuge mit Namen und Geräusch: Brumm!"},
    link:{it:"https://www.amazon.it/dp/B0HNH5T5PX"}},
-  {id:"natale", img:"img/natale.jpg", cat:"speciali", stato:"online",
+  {id:"natale", pagina:"natale/", img:"img/natale.jpg", cat:"speciali", stato:"online",
    tit:{it:"Il villaggio di Babbo Natale", en:"Santa's Village", de:"Das Weihnachtsdorf"},
    eta:{it:"3-8 anni", en:"Ages 3-8", de:"3-8 Jahre"},
    txt:{it:"Elfi, renne e un camino bello largo: il cantiere al Polo Nord!", en:"Elves, reindeer and a nice wide chimney: building at the North Pole!", de:"Wichtel, Rentiere und ein breiter Kamin: die Baustelle am Nordpol!"},
@@ -445,7 +446,7 @@ function disegna(){
       <div class="cop">${l.stato==="presto"?`<span class="badge">${testo("soon")}</span>`:""}<img src="${l.img}" alt="${l.tit[lg]}" loading="lazy"></div>
       <div class="mini">${[1,2,3].map(i => `<button data-libro="${l.id}" data-i="${i}" aria-label="${testo("dentro")} ${i}"><img src="img/pag/${l.id}_${i}.jpg" alt="" loading="lazy"></button>`).join("")}</div>
       <p class="mini-txt">${testo("dentro")}</p>
-      <div class="dati"><span class="eta">${l.eta[lg]}</span><h3>${l.tit[lg]}</h3><p>${l.txt[lg]}</p><div class="compra">${compra}</div></div>
+      <div class="dati"><span class="eta">${l.eta[lg]}</span><h3>${l.pagina ? `<a href="${l.pagina}">${l.tit[lg]}</a>` : l.tit[lg]}</h3><p>${l.txt[lg]}</p><div class="compra">${compra}</div></div>
     </article>`;
   }).join("");
 }
