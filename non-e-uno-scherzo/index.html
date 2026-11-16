@@ -95,6 +95,15 @@
   footer a{color:#fff;text-decoration:none;font-weight:800;margin-right:16px}
   footer small{display:block;margin-top:10px;opacity:.8}
 
+  .collana{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:18px}
+  .vol{border:3px solid var(--navy);border-radius:var(--r);background:#fff;box-shadow:5px 5px 0 var(--navy);overflow:hidden;display:flex;flex-direction:column}
+  .vol img{width:100%;display:block;border-bottom:3px solid var(--navy)}
+  .vol div{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .vol h3{font-size:1.15rem;margin:0}
+  .vol p{margin:0;font-size:.95rem;color:var(--grigio)}
+  .vol .eta{font-weight:800;font-size:.85rem;color:var(--blu)}
+  .vol .presto{margin-top:auto;text-align:center;font-weight:800;border:3px dashed #aab7c9;border-radius:14px;padding:8px;color:var(--grigio)}
+  @media (max-width:820px){.collana{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
   @media (max-width:820px){
     .hero .wrap,.due,.scarica{grid-template-columns:1fr}
     .hero .cop{max-width:260px;margin:0 auto}
@@ -221,6 +230,19 @@
         </div>
       </div>
       <p style="margin-top:16px">Per le scuole: possiamo inviare una copia omaggio del libro. Scrivici a <a href="mailto:info@nicoeoscar.it?subject=Copia%20omaggio%20Non%20%C3%A8%20uno%20scherzo"><strong>info@nicoeoscar.it</strong></a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="collana">
+  <div class="wrap">
+    <h2>Gli altri libri della collana</h2>
+    <p>«Non è uno scherzo!» è il primo volume di <strong>Storie per crescere insieme</strong>: storie per parlare con i bambini delle prove più importanti della crescita.</p>
+    <div class="collana">
+      <article class="vol"><img src="../img/scherzo/serie_bambino.jpg" alt="Copertina del libro Il bambino che nessuno sceglieva" loading="lazy"><div><span class="eta">Dai 6 anni</span><h3>Il bambino che nessuno sceglieva</h3><p>Una storia sull'esclusione e sull'amicizia.</p><span class="presto">Prossimamente</span></div></article>
+      <article class="vol"><img src="../img/scherzo/serie_coraggio.jpg" alt="Copertina del libro Il coraggio di dire NO" loading="lazy"><div><span class="eta">Dai 6 anni</span><h3>Il coraggio di dire NO</h3><p>Una storia sulle pressioni del gruppo.</p><span class="presto">Prossimamente</span></div></article>
+      <article class="vol"><img src="../img/scherzo/serie_nonseisolo.jpg" alt="Copertina del libro Non sei solo" loading="lazy"><div><span class="eta">Dai 6 anni</span><h3>Non sei solo</h3><p>Una storia sulla paura di parlare e sulla fiducia.</p><span class="presto">Prossimamente</span></div></article>
+      <article class="vol"><img src="../img/scherzo/serie_parole.jpg" alt="Copertina del libro Le parole fanno male" loading="lazy"><div><span class="eta">Dagli 11 anni</span><h3>Le parole fanno male</h3><p>Una storia sulle offese e sul cyberbullismo.</p><span class="presto">Prossimamente</span></div></article>
     </div>
   </div>
 </section>
